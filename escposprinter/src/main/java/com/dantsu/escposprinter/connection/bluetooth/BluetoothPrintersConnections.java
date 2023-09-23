@@ -24,8 +24,6 @@ public class BluetoothPrintersConnections extends BluetoothConnections {
     BluetoothPrintersConnections printers = new BluetoothPrintersConnections();
     BluetoothConnection[] bluetoothPrinters = printers.getList();
 
-    Log.e("BluetoothPrintersConn: ", "selectFirstPaired: " + bluetoothPrinters);
-
     if (bluetoothPrinters != null) {
       for (BluetoothConnection printer : bluetoothPrinters) {
         try {

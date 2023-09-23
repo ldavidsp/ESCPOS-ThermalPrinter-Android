@@ -4,14 +4,14 @@ plugins {
 }
 
 def libraryVersionCode = 3003000
-def libraryVersionName = "3.3.0"
+def libraryVersionName = "3.3.2"
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode libraryVersionCode
         versionName libraryVersionName
 
@@ -43,16 +43,10 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'com.github.DantSu'
+                from components.release
+                groupId = 'com.github.ldavidsp'
                 artifactId = 'ESCPOS-ThermalPrinter-Android'
                 version = libraryVersionName
-                pom {
-                    name = 'Android library for ESC/POS Thermal Printer'
-                    description = 'Useful library to help Android developers to print with (Bluetooth, TCP, USB) ESC/POS thermal printers.'
-                }
-                afterEvaluate {
-                    from components.release
-                }
             }
         }
     }
