@@ -56,11 +56,13 @@ public class BluetoothPrintersConnections extends BluetoothConnections {
       BluetoothDevice device = bluetoothConnection.getDevice();
 
       int majDeviceCl = device.getBluetoothClass().getMajorDeviceClass(),
-        deviceCl = device.getBluetoothClass().getDeviceClass();
+          deviceCl = device.getBluetoothClass().getDeviceClass();
 
       if (majDeviceCl == BluetoothClass.Device.Major.IMAGING && (deviceCl == 1664 || deviceCl == BluetoothClass.Device.Major.IMAGING)) {
         printersTmp[i++] = new BluetoothConnection(device);
       } else if (majDeviceCl == BluetoothClass.Device.Major.UNCATEGORIZED && (deviceCl == BluetoothClass.Device.Major.UNCATEGORIZED)) {
+        printersTmp[i++] = new BluetoothConnection(device);
+      } else if (majDeviceCl == BluetoothClass.Device.Major.MISC && (deviceCl == BluetoothClass.Device.Major.MISC)) {
         printersTmp[i++] = new BluetoothConnection(device);
       }
     }
